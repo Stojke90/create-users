@@ -1,0 +1,87 @@
+.create {
+	max-width: 350px;
+    width: 100%;
+    margin: auto;
+    border-style: groove;
+    animation: showUp 1.5s linear;
+    position: absolute;
+    left: 36%;
+    top: 200px;
+    background-color: #ffffffa3;
+}
+
+@keyframes showUp {
+
+	0%{opacity: 0;transform:scale(0)}
+	20%{opacity: 0.2;transform:scale(0.2)}
+	40%{opacity: 0.4;transform:scale(0.4)}
+	60%{opacity: 0.6;transform:scale(0.6)}
+	80%{opacity: 0.8;transform:scale(0.8)}
+	100%{opacity: 1;transform:scale(1)}
+	
+}
+
+@keyframes showOff {
+
+	0%{opacity: 1;transform:scale(1)}
+	20%{opacity: 0.8;transform:scale(0.2)}
+	40%{opacity: 0.6;transform:scale(0.6)}
+	60%{opacity: 0.4;transform:scale(0.4)}
+	80%{opacity: 0.2;transform:scale(0.2)}
+	100%{opacity: 0;transform:scale(0)}
+	
+}
+
+.create > h1 {
+	text-align: center;
+    padding: 15px;
+    background-color: #8a2be2;
+}
+
+.data {
+    display: flex;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.data > p {
+    width: 80px;
+}
+
+.data > input {
+	width: 60%;
+	text-indent: 3px;
+}
+
+.gender {
+	display: flex;
+    margin-top: 10px;
+    align-items: baseline;
+}
+
+.gender > p {
+	width: 100px;
+	font-weight: bold;
+}
+
+.gender :nth-child(3) {
+	margin-right: 50px;
+}
+
+.gender > input {
+	margin-right: 5px;
+}
+
+.btnPop button {
+	width: 50%;
+	margin-top: 10px;
+	height: 30px;
+	font-weight: 700;
+	cursor: pointer;
+	background: repeating-linear-gradient(146deg, #2d72f096, #eef7fa 100px);
+}
+
+.middle {
+	width: 80%;
+    margin: 10px auto 0px;
+}

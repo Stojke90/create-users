@@ -1,0 +1,28 @@
+.btnWrap {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.btnUser {
+	height: 25px;
+    padding: 3px 5px;
+    cursor: pointer;
+    outline: none;
+    -webkit-border-radius: 3px;
+            border-radius: 3px;
+    color: #fff;
+    margin-top: 10px;
+}
+
+.new {
+	background-color: #5656ee;
+}
+
+.sort {
+	background-color: #ff7f50;
+}
+
+.new:active ,.sort:active {
+	box-shadow: inset 0 0 20px 0px #000000;
+	cursor: progress
+}

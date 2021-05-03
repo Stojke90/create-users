@@ -1,0 +1,44 @@
+.card {
+	width: 200px;
+    border-style: outset;
+    padding: 5px;
+    background-color: brown;
+    animation: showCard 2s linear;
+    margin: 10px;
+}
+
+@keyframes showCard {
+    0%{opacity:0.2;transform:rotate(0deg)scale(0.1)}
+    25%{opacity:0.4;transform:rotate(90deg)scale(0.2)}
+    50%{opacity:0.6;transform:rotate(180deg)scale(0.4)}
+    75%{opacity:0.8;transform:rotate(270deg)scale(0.6)}
+    100%{opacity:1;transform:rotate(360deg)scale(1)}
+}
+
+
+.card > img {
+	width: 180px;
+    height: 150px;
+    background-color: blanchedalmond;
+    display: block;
+    margin: auto;
+}
+
+.card > p {
+    margin-top: 10px;
+    font-style: italic;
+}
+
+.card > p > span {
+	font-weight: 600;
+}
+
+.card button {
+    display: block;
+    width: 100%;
+    padding: 2px;
+    margin-top: 10px;
+    cursor: pointer;
+    background: repeating-linear-gradient(45deg, black, transparent 100px);
+    color: black;
+}
