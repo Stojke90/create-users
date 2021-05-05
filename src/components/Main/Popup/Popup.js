@@ -3,8 +3,6 @@ import './Popup.css';
 
 const Popup = (props) => {
 
-
-
 	return(
 		<section className='create'>
 			<h1>Create user</h1>
@@ -36,19 +34,19 @@ const Popup = (props) => {
 					<p>Gender:</p>
 				    <input type="radio" 
 				    	id="male" 
-				    	name="gender" 
-				    	value="male" 
+				    	name="gender"  
 				    	required
+				    	value='male'
 				    	onChange={props.gender}
 				    />
   					<label htmlFor="male">Male</label>
 
   					<input type="radio" 
   						id="female" 
-  						name="gender" 
-  						value="female" 
+  						name="gender"  
   						required
-  						onChange={props.gender}
+  						value='female'
+				    	onChange={props.gender}
   					/>
   					<label htmlFor="female">Female</label>
 			</div>

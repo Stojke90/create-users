@@ -5,6 +5,7 @@
     background-color: brown;
     animation: showCard 2s linear;
     margin: 10px;
+    z-index: 1;
 }
 
 @keyframes showCard {
@@ -13,6 +14,15 @@
     50%{opacity:0.6;transform:rotate(180deg)scale(0.4)}
     75%{opacity:0.8;transform:rotate(270deg)scale(0.6)}
     100%{opacity:1;transform:rotate(360deg)scale(1)}
+}
+
+.card:hover {
+    -webkit-transform: scale(1.1);
+       -moz-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+         -o-transform: scale(1.1);
+            transform: scale(1.1);
+    box-shadow: 0 0 13px 9px black;
 }
 
 

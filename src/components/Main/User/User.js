@@ -1,22 +1,21 @@
 import React from 'react';
 import './User.css';
 
-
-const User = ({data}) => {
-console.log(data.id)
+const User = (props) => {
 
 	return (
+
 		<section className = 'card'>
 
 			<img src={"https://bit.ly/3xwEF6i"} alt='user_image'/>
 
-			<p><span>Name: </span>{data.name}</p>
-			<p><span>Age: </span>{data.age}</p>
-			<p><span>Gender: </span>{data.gender}</p>
+			<p><span>Name: </span>{props.data.name}</p>
+			<p><span>Age: </span>{props.data.age}</p>
+			<p><span>Gender: </span>{props.data.gender}</p>
 
-			<button>Edit user</button>
-			<button>Clone user</button>
-			<button>Delete user</button>
+			<button onClick={() => props.editUser(props.data.id)}>Edit user</button>
+			<button onClick={() => props.cloneUser(props.data.id)}>Clone user</button>
+			<button onClick={() => props.deleteUser(props.data.id)}>Delete user</button>
 
 		</section>
 

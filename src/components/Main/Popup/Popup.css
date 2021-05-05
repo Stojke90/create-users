@@ -8,6 +8,7 @@
     left: 36%;
     top: 200px;
     background-color: #ffffffa3;
+    z-index: 555;
 }
 
 @keyframes showUp {
