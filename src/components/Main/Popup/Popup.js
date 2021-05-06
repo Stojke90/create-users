@@ -1,7 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Popup.css';
+import uuid from 'react-uuid';
 
-const Popup = (props) => {
+const Popup = ({onPopupClose, pushUser,index}) => {
+	// set user datas as object
+	const [user, setUser] = useState({
+	    name: "",
+	    age: "",
+	    gender: "",
+	    id: uuid(),
+	});
 
 	return(
 		<section className='create'>
@@ -14,7 +22,7 @@ const Popup = (props) => {
 						type='text' 
 						id='name' 
 						placeholder = 'user name' 
-						onChange={props.name}
+						onChange={e => setUser({...user,name: e.target.value})}
 					/>
 				</div>
 
@@ -25,7 +33,7 @@ const Popup = (props) => {
 						type='number' 
 						id='age' 
 						placeholder = 'user age' 
-						onChange={props.age}
+						onChange={e => setUser({...user,age: e.target.value})}
 					/>
 				</div>
 
@@ -37,7 +45,7 @@ const Popup = (props) => {
 				    	name="gender"  
 				    	required
 				    	value='male'
-				    	onChange={props.gender}
+				    	onChange={e => setUser({...user,gender: e.target.value})}
 				    />
   					<label htmlFor="male">Male</label>
 
@@ -46,14 +54,14 @@ const Popup = (props) => {
   						name="gender"  
   						required
   						value='female'
-				    	onChange={props.gender}
+				    	onChange={e => setUser({...user,gender: e.target.value})}
   					/>
   					<label htmlFor="female">Female</label>
 			</div>
 
 			<div className='btnPop'>
-				<button onClick={props.onPopupClose}>Close</button>
-				<button onClick={props.pushUser}>Save</button>
+				<button onClick={onPopupClose}>Cancel</button>
+				<button onClick={() => pushUser(user)}>Confirm</button>
 			</div>
 
 		</section>

@@ -3,9 +3,11 @@
     border-style: outset;
     padding: 5px;
     background-color: brown;
-    animation: showCard 2s linear;
+    animation: showCard 1.2s linear;
     margin: 10px;
     z-index: 1;
+    height: max-content;
+    transition: all 1s ease;
 }
 
 @keyframes showCard {
@@ -23,6 +25,7 @@
          -o-transform: scale(1.1);
             transform: scale(1.1);
     box-shadow: 0 0 13px 9px black;
+    background: #5656ee;
 }
 
 
@@ -34,14 +37,45 @@
     margin: auto;
 }
 
-.card > p {
+.wraper {
+    display: flex;
+    -webkit-justify-content: space-between;
+            justify-content: space-between;
+    -webkit-align-content: center;
+            align-content: center;
+    margin: 10px 10px 0px 5px;
+}
+
+.wraper > p {
+    color: black;
+    font-weight: 700;
+}
+
+.inactiveInput {
+    width: 60%;
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+    font-style: italic;
+    color: black;
+}
+
+.editableInput {
+    width: 60%;
+    color: black;
+    font-size: 16px;
+    border-style: solid;
+    background: #fff;
+    text-indent: 3px;
+}
+/* .card > p {
     margin-top: 10px;
     font-style: italic;
 }
 
 .card > p > span {
 	font-weight: 600;
-}
+} */
 
 .card button {
     display: block;
