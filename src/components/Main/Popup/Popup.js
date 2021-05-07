@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import './Popup.css';
 import uuid from 'react-uuid';
 
-const Popup = ({onPopupClose, pushUser,index}) => {
+const Popup = ({onPopupClose, pushUser}) => {
+
 	// set user datas as object
 	const [user, setUser] = useState({
 	    name: "",
@@ -10,6 +11,7 @@ const Popup = ({onPopupClose, pushUser,index}) => {
 	    gender: "",
 	    id: uuid(),
 	});
+
 
 	return(
 		<section className='create'>
@@ -61,7 +63,7 @@ const Popup = ({onPopupClose, pushUser,index}) => {
 
 			<div className='btnPop'>
 				<button onClick={onPopupClose}>Cancel</button>
-				<button onClick={() => pushUser(user)}>Confirm</button>
+				<button onClick={() => pushUser(user)} disabled={!user.name || !user.age || !user.gender}>Confirm</button>
 			</div>
 
 		</section>

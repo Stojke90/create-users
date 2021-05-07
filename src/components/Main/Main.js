@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import './Main.css';
+
 import CreateAndSortUsers from './CreateAndSortUsers/CreateAndSortUsers';
 import User from './User/User';
 import Popup from './Popup/Popup';
+import Arrow from './Arrow/Arrow';
 import uuid from 'react-uuid';
+
+
 
 const Main = ({sortUser}) => {
 
@@ -13,23 +17,23 @@ const Main = ({sortUser}) => {
 	const [users, setUsers] = useState([
 			{name:'Marko',age: 31,gender:'male',id:1},
 			{name:'Stefan',age: 27,gender:'male',id:2},
-			{name:'Ivana',age: 32,gender:'female',id:3},
+			{name:'Ivana',age: 32,gender:'female',id:3}
 	]);
 
 	// push user in array of objects and reset user state,and close Popup
-	const heandlePushUser = (receiveduser) => {
-	    setUsers([...users, receiveduser]);
+	const heandlePushUser = (receivedUser) => {
+	    setUsers([...users, receivedUser]);
 	    setPopupActive(false);
 	};
 
 	//search user by name age or gender
 	const findUsers = (namesUsers) => {
 		return namesUsers.filter(nameUser => nameUser.name.toLowerCase().indexOf(sortUser.toLowerCase()) > -1 || nameUser.age.toString().indexOf(sortUser) > -1 || nameUser.gender.toLowerCase().indexOf(sortUser.toLowerCase()) > -1);
-	}
+	};
 
 	// show users
 	const showUsers = () => {
-		// if(users.name && users.age && users.gender)
+		
 		if(users.length === 0){
 			return <p className="emptyParagraf" style={{marginRight: 'auto'}}>No users</p>
 		}
@@ -38,12 +42,18 @@ const Main = ({sortUser}) => {
 		} 
 		if(users) {
 			return users.map((data,index) => 
-				<User data={data} key={uuid()} deleteUser={deleteUser} cloneUser={cloneUser}/>);
+				<User data={data} key={uuid()} modifiedUser={modifiedUser} deleteUser={deleteUser} cloneUser={cloneUser}/>);
 		};
-			
-		
 		
 	};
+
+	const modifiedUser = (passUser) => {
+		const editUser = users.find(user => user.id === passUser.id);
+		editUser.name = passUser.name;
+		editUser.age = passUser.age;
+		editUser.gender = passUser.gender;
+		editUser.id = passUser.id;
+	}
 
 	const cloneUser = (id) => {
 		const findUserById = users.find(user => user.id === id);
@@ -61,7 +71,7 @@ const Main = ({sortUser}) => {
 	const sortByNameReverse = () => {
 		setUsers([...users.sort((a, b) => a.name.localeCompare(b.name)).reverse()]);
 	};
-console.log(users)
+
 	return(
 		<main>
 
@@ -77,6 +87,7 @@ console.log(users)
 	            {showUsers()}
 	        </div>
 
+	        <Arrow />
 		</main>
 	);
 };

@@ -3,7 +3,7 @@ import './App.css';
 import Header from './components/Header/Header';
 import Main from './components/Main/Main';
 
-const App = (props) => {
+const App = () => {
 	
 	const [sortUser, setSortUser] = useState('');
 

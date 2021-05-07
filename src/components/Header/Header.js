@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import './Header.css';
 
-const Header = (props) => {
+const Header = ({onItemClick}) => {
 
 	const[searchValue, setSearchValue] = useState('');
 
 	const handleKeyDown = e => {
 	    if (e.key === "Enter") {
-	      props.onItemClick(searchValue);
+	      onItemClick(searchValue);
 	    }
 	  };
-console.log(searchValue)
+	  
 	return(
 		<>
 		<header id='header'>
@@ -23,7 +23,7 @@ console.log(searchValue)
 						value={searchValue}
 						onKeyPress={handleKeyDown}
 				/>
-			<button id='btn' onClick={() => props.onItemClick(searchValue)}>Search</button>
+			<button id='btn' onClick={() => onItemClick(searchValue)}>Search</button>
 		</header>
 		</>
 	);

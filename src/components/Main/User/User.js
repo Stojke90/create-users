@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import './User.css';
 
-const User = ({data, editUser, cloneUser, deleteUser}) => {
+const User = ({data, editUser, cloneUser, deleteUser, modifiedUser}) => {
 
 	const [edit, setEdit] = useState(true);
 
 	const [user, setUser] = useState({
 	  	name: data.name,
 	    age: data.age,
-	    gender: data.gender
+	    gender: data.gender,
+	    id: data.id
 	})
 
 	const showEditor = () => {
@@ -16,7 +17,7 @@ const User = ({data, editUser, cloneUser, deleteUser}) => {
   	};
 
   	const saveEdit = () => {
-	    console.log(user);
+	    modifiedUser(user)
 	    setEdit(true);
   	};
 
@@ -28,12 +29,20 @@ const User = ({data, editUser, cloneUser, deleteUser}) => {
   		}
   	}
 
+  	const imgOfUser = () => {
+  		if(user.gender === 'female') {
+  			return "https://bit.ly/3uvg3sS";
+  		}else {
+  			return "https://bit.ly/2QZet3O";
+  		}
+  	}
+
 
 	return (
 
 		<section className = 'card'>
 
-			<img src={"https://bit.ly/3xwEF6i"} alt='user_image'/>
+			<img src={imgOfUser()} alt='user_image'/>
 
 			<article className="wraper"><p>Name: </p>
 				<input 
@@ -65,7 +74,7 @@ const User = ({data, editUser, cloneUser, deleteUser}) => {
 				/>
 			</article>
 
-			{!edit && <button onClick={() => saveEdit(user)}>Save changes</button>}
+			{!edit && <button onClick={() => saveEdit()}>Save changes</button>}
 			<button onClick={() => showEditor()}>Edit user</button>
 			<button onClick={() => cloneUser(data.id)}>Clone user</button>
 			<button onClick={() => deleteUser(data.id)}>Delete user</button>
