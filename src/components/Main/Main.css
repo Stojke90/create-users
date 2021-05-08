@@ -6,6 +6,7 @@ main {
     position: relative;
     top: 77px;
     padding: 24px;
+    min-height: 548px;
 }
 #users {
 	max-width: 1000px;
@@ -31,4 +32,10 @@ main {
 	50%{color:#aaf6b4;}
 	75%{color:#f8b69d;}
 	100%{color:#ff7f50;}
+}
+
+main > p {
+    position: fixed;
+    bottom: 10px;
+    left: 5px;
 }

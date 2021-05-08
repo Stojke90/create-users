@@ -21,46 +21,38 @@ const Main = ({sortUser}) => {
 	useEffect(() => {
 		getUsers();
 	},[]);
-console.log(users)
+
 	// push user in array of objects and reset user state,and close Popup
 	const pushUserAndClone = (receivedUser) => {
-	    fetch(`${baseURL}.json`,{
-	    	method: 'POST',
-	    	body: JSON.stringify(receivedUser)
-	    })
+	    axios.post(`${baseURL}.json`,JSON.stringify(receivedUser))
 	    .then(rez => (rez.status === 200 || rez.status === 201) && getUsers())
-	    .catch(error => alert(error))
-
+	    .catch(error => alert(error));
 	    setPopupActive(false);
 	};
 
 	// get users from server on our page
 	const getUsers = () => {
-		fetch(`${baseURL}.json`)
-			.then(data => data.json())
-			.then(results => {
-				const newUsers = [];
-				for(const key in results){
-					newUsers.push({...results[key],id: key})
-				}
-				setUsers(newUsers)
+		axios.get(`${baseURL}.json`)
+		  .then(results => {
+		  	const newUsers =[]; 
+		  	for(const key in results.data){
+		  		newUsers.push({...results.data[key],id: key});
+		  	}
+		  	setUsers(newUsers);
 			})
-			.catch(error => alert(error))
+			.catch(error => alert(error));
 	};
 
 	// edit and save user find by id on server
 	const modifiedUser = (passUser) => {
-		fetch(`${baseURL}/${passUser.id}.json`,{
-	    	method: 'PATCH',
-	    	body: JSON.stringify(passUser)
-	    })
+	 	axios.patch(`${baseURL}/${passUser.id}.json`,JSON.stringify(passUser))
 	    .then(rez => (rez.status === 200 || rez.status === 201) && getUsers())
 	    .catch(error => alert(error));
 	};
 
 	// delete user find by id in server
 	const deleteUser = (id) => {
-		fetch(`${baseURL}/${id}.json`,{method: 'DELETE'})
+		axios.delete(`${baseURL}/${id}.json`)
 	    .then(rez => (rez.status === 200 || rez.status === 201) && getUsers())
 	    .catch(error => alert(error));
 	};
@@ -126,7 +118,9 @@ console.log(users)
 
 	        <Arrow />
 
-	        <p style={{fontStyle: 'italic'}}>by: Stojke90 <span role="img" aria-label="sunglasses" style={{fontStyle: 'initial'}}>😎</span></p>
+	        <p style={{fontStyle: 'italic'}}>by: Stojke90 
+	        	<span role="img" aria-label="sunglasses" style={{fontStyle: 'initial'}}> 😎</span>
+	        </p>
 		</main>
 	);
 };
