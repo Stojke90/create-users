@@ -8,9 +8,10 @@ const Header = ({onItemClick}) => {
 	const handleKeyDown = e => {
 	    if (e.key === "Enter") {
 	      onItemClick(searchValue);
-	    }
+	      setSearchValue('');
+	    };
 	  };
-	  
+
 	return(
 		<>
 		<header id='header'>

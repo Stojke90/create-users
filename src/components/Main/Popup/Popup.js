@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
 import './Popup.css';
-import uuid from 'react-uuid';
 
 const Popup = ({onPopupClose, pushUser}) => {
 
-	// set user datas as object
+	// set user data as object and get user name,age and gender
 	const [user, setUser] = useState({
 	    name: "",
 	    age: "",
-	    gender: "",
-	    id: uuid(),
+	    gender: ""
 	});
 
 

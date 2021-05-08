@@ -1,3 +1,12 @@
+main {
+    background-image: url('https://bit.ly/3nZsKJV');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    top: 77px;
+    padding: 24px;
+}
 #users {
 	max-width: 1000px;
     margin: 50px auto 0;

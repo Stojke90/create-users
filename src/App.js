@@ -14,7 +14,7 @@ const App = () => {
   return (
     <>
         <Header onItemClick={onItemClick}/>
-        <Main sortUser={sortUser}/>
+        <Main sortUser={sortUser} />
     </>
   );
 }

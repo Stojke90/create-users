@@ -2,40 +2,40 @@ import React, { useState } from 'react';
 import './User.css';
 
 const User = ({data, editUser, cloneUser, deleteUser, modifiedUser}) => {
-
+	// for input disabled or enable
 	const [edit, setEdit] = useState(true);
-
+	// state dor data of user
 	const [user, setUser] = useState({
 	  	name: data.name,
 	    age: data.age,
 	    gender: data.gender,
 	    id: data.id
-	})
-
+	});
+	// enable input for edit user card
 	const showEditor = () => {
 	    setEdit(false);
   	};
-
+  	// save user change and back with changes
   	const saveEdit = () => {
 	    modifiedUser(user)
 	    setEdit(true);
   	};
-
+  	// toogle with class for input when clicked on edit user
   	const toogleClass = () => {
   		if(edit) {
   			return "inactiveInput";
   		}else {
   			return "editableInput";
   		}
-  	}
-
+  	};
+  	// toogle with img depande on gender of user
   	const imgOfUser = () => {
   		if(user.gender === 'female') {
   			return "https://bit.ly/3uvg3sS";
   		}else {
   			return "https://bit.ly/2QZet3O";
   		}
-  	}
+  	};
 
 
 	return (
@@ -76,7 +76,7 @@ const User = ({data, editUser, cloneUser, deleteUser, modifiedUser}) => {
 
 			{!edit && <button onClick={() => saveEdit()}>Save changes</button>}
 			<button onClick={() => showEditor()}>Edit user</button>
-			<button onClick={() => cloneUser(data.id)}>Clone user</button>
+			<button onClick={() => cloneUser(data)}>Clone user</button>
 			<button onClick={() => deleteUser(data.id)}>Delete user</button>
 
 		</section>
